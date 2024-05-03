@@ -57,10 +57,6 @@ if(isset($_POST['order_btn'])){
            $cart_products[] = $cart_item['name'].' ('.$cart_item['quantity'].') ';
            $sub_total = ($cart_item['price'] * $cart_item['quantity']);
            $cart_total += $sub_total;
-
-           // Reduce the stock of the product in the shop
-           $product_id = $cart_item['product_id'];
-           mysqli_query($conn, "UPDATE `products` SET stock = stock - {$cart_item['quantity']} WHERE id = $product_id") or die('query failed');
        }
    }
    
@@ -88,8 +84,6 @@ if(isset($_POST['order_btn'])){
 }
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
